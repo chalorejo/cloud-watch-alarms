@@ -33,7 +33,7 @@ class CloudWatchAlarmsStack(Stack):
                 budget_type="COST",
                 time_unit="MONTHLY",
                 budget_limit=budgets.CfnBudget.SpendProperty(
-                    amount=1.00,
+                    amount=0.01,
                     unit="USD"
                 ),
                 cost_filters={
@@ -45,7 +45,7 @@ class CloudWatchAlarmsStack(Stack):
                 budgets.CfnBudget.NotificationWithSubscribersProperty(
                     notification=budgets.CfnBudget.NotificationProperty(
                         comparison_operator="GREATER_THAN",
-                        notification_type="ACTUAL",
+                        notification_type="FORECASTED",
                         threshold=50,
                         threshold_type="PERCENTAGE"
                     ),
@@ -55,7 +55,7 @@ class CloudWatchAlarmsStack(Stack):
                 budgets.CfnBudget.NotificationWithSubscribersProperty(
                     notification=budgets.CfnBudget.NotificationProperty(
                         comparison_operator="GREATER_THAN",
-                        notification_type="ACTUAL",
+                        notification_type="FORECASTED",
                         threshold=60,
                         threshold_type="PERCENTAGE"
                     ),
@@ -65,7 +65,7 @@ class CloudWatchAlarmsStack(Stack):
                 budgets.CfnBudget.NotificationWithSubscribersProperty(
                     notification=budgets.CfnBudget.NotificationProperty(
                         comparison_operator="GREATER_THAN",
-                        notification_type="ACTUAL",
+                        notification_type="FORECASTED",
                         threshold=95,
                         threshold_type="PERCENTAGE"
                     ),
